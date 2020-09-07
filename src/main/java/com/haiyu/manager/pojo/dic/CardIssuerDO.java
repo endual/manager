@@ -4,7 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 发卡单位字典表
@@ -23,6 +22,10 @@ public class CardIssuerDO implements Serializable {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    /**
+     * issuerId
+     */
     private Integer issuerId;
     /**
      * 值

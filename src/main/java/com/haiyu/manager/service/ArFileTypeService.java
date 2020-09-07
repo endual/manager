@@ -1,6 +1,5 @@
 package com.haiyu.manager.service;
 
-import com.haiyu.manager.dto.ArFileTypeDTO;
 import com.haiyu.manager.pojo.dic.ArFileTypeDO;
 import com.haiyu.manager.response.PageDataResult;
 
@@ -8,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface ArFileTypeService {
-    PageDataResult getArFileTypeList(Integer pageNum, Integer pageSize, ArFileTypeDTO arFileTypeDTO);
+    PageDataResult getArFileTypeList(Integer pageNum, Integer pageSize);
 
-    Map<String,Object> addArFileType(ArFileTypeDO fileType);
+    Map<String,Object> addArFileType(ArFileTypeDO arFileTypeDO);
 
     Map<String, Object> updateArFileType(ArFileTypeDO arFileTypeDO);
     /**
@@ -23,4 +22,6 @@ public interface ArFileTypeService {
      * @date: 2018/11/30 11:36
      */
     List<ArFileTypeDO> arFileTypeList();
+
+    Map<String, Object> del(Integer id);
 }

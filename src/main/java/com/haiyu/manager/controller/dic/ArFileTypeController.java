@@ -1,6 +1,5 @@
 package com.haiyu.manager.controller.dic;
 
-import com.haiyu.manager.dto.ArFileTypeDTO;
 import com.haiyu.manager.pojo.dic.ArFileTypeDO;
 import com.haiyu.manager.response.PageDataResult;
 import com.haiyu.manager.service.ArFileTypeService;
@@ -55,8 +54,8 @@ public class ArFileTypeController {
     @PostMapping("/getArFileTypeList")
     @ResponseBody
     public PageDataResult getArFileTypeList(@RequestParam("pageNum") Integer pageNum,
-                                          @RequestParam("pageSize") Integer pageSize,
-            /*@Valid PageRequest page,*/ ArFileTypeDTO arFileTypeDTO) {
+                                            @RequestParam("pageSize") Integer pageSize,
+            /*@Valid PageRequest page,*/ ArFileTypeDO arFileTypeDO) {
         PageDataResult pdr = new PageDataResult();
         try {
             if (null == pageNum) {
@@ -67,19 +66,19 @@ public class ArFileTypeController {
             }
             // 获取用户列表
 
-            pdr =  arFileTypeService.getArFileTypeList(pageNum,pageSize,arFileTypeDTO);
+            pdr =  arFileTypeService.getArFileTypeList(pageNum,pageSize);
 
-            logger.info("用户列表查询=pdr:" + pdr);
+            logger.info("Ar文件类型列表查询=pdr:" + pdr);
 
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("用户列表查询异常！", e);
+            logger.error("Ar文件类型列表查询异常！", e);
         }
         return pdr;
     }
     /**
      *
-     *述: 设置角色[新增或更新]
+     *述: 设置ar文件类型[新增或更新]
      *
      * @param:
      * @return:
@@ -92,10 +91,10 @@ public class ArFileTypeController {
         logger.info("设置[ar文件类型变更]！arFileTypeDO:" + arFileTypeDO);
         Map<String,Object> data = new HashMap();
         if(arFileTypeDO.getId() == null){
-            //新增角色
+            //新增ar文件类型
             data = arFileTypeService.addArFileType(arFileTypeDO);
         }else{
-            //修改角色
+            //修改ar文件类型
             data = arFileTypeService.updateArFileType(arFileTypeDO);
         }
         return data;
@@ -117,5 +116,16 @@ public class ArFileTypeController {
         return arFileTypeService.arFileTypeList();
     }
 
+    /**
+     * 功能描述: 删除ar文件类型——逻辑删除
+     */
+    @PostMapping("del")
+    @ResponseBody
+    public Map<String, Object> delete(Integer id) {
+        logger.info("逻辑删除ar文件类型!id:" + id);
+        Map<String, Object> data = new HashMap<>();
+        //删除服务类目类型
+        return arFileTypeService.del(id);
 
+    }
 }

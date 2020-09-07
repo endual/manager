@@ -21,11 +21,12 @@ import java.io.Serializable;
 public class TransTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * transTypeId
-	 */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    /**
+     * transTypeId
+     */
 	private Integer transTypeId;
 	/**
 	 * 设备类型

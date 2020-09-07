@@ -4,11 +4,12 @@ package com.haiyu.manager.service;
 import com.haiyu.manager.pojo.dic.CardIssuerDO;
 import com.haiyu.manager.response.PageDataResult;
 
+import java.util.List;
 import java.util.Map;
 
 public interface CardIssuerService {
 
-    PageDataResult getCardIssuerList();
+    PageDataResult getCardIssuerList(Integer pageNum, Integer pageSize);
 
     /**
      *
@@ -31,4 +32,8 @@ public interface CardIssuerService {
      * @date: 2018/11/30 9:48
      */
     Map<String,Object> updateCardIssuer(CardIssuerDO cardIssuerDO);
+
+    List<CardIssuerDO> cardIssuerList();
+
+    Map<String, Object> del(Integer id);
 }

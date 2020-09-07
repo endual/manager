@@ -20,7 +20,12 @@ import java.io.Serializable;
 @Table(name="DIC_PURCHASER_TYPE")
 public class PurchaserTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+    /**
+     * $column.comments
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
 	 * 编码
 	 */

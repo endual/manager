@@ -1,6 +1,10 @@
 package com.haiyu.manager.service;
 
+import com.haiyu.manager.pojo.dic.PsgrTypeDO;
 import com.haiyu.manager.response.PageDataResult;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * ${comments}
@@ -11,6 +15,14 @@ import com.haiyu.manager.response.PageDataResult;
  */
 public interface PsgrTypeService {
 
-    PageDataResult getPsgrTypeList();
+    PageDataResult getPsgrTypeList(Integer pageNum, Integer pageSize);
+
+    Map<String, Object> addPsgrType(PsgrTypeDO psgrTypeDO);
+
+    Map<String, Object> updatePsgrType(PsgrTypeDO psgrTypeDO);
+
+    List<PsgrTypeDO> psgrTypeList();
+
+    Map<String, Object> del(Integer id);
 }
 

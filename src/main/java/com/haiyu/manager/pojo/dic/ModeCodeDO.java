@@ -3,6 +3,9 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -18,6 +21,9 @@ import java.io.Serializable;
 public class ModeCodeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
 	 * 定义
 	 */

@@ -46,5 +46,9 @@ public class CommandEventDO implements Serializable {
 	 * 命令来源
 	 */
 	private String commandSource;
+    /**
+     * 逻辑删除
+     */
+	private Integer logicDelete;
 
 }

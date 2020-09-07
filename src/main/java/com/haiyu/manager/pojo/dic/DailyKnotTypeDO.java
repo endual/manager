@@ -2,10 +2,11 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 日结任务类型字典表
@@ -23,6 +24,7 @@ public class DailyKnotTypeDO implements Serializable {
 	 * 类别ID
 	 */
 	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	/**
 	 * 类别名称
@@ -35,7 +37,7 @@ public class DailyKnotTypeDO implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	private Date createTime;
+	private String createTime;
 	/**
 	 * 是否保留历史数据 0|否，1|是
 	 */

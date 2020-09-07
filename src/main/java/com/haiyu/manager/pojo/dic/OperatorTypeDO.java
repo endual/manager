@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 操作员类型表
@@ -21,6 +20,9 @@ import java.util.Date;
 public class OperatorTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 	/**
 	 * $column.comments
 	 */
@@ -40,6 +42,6 @@ public class OperatorTypeDO implements Serializable {
 	/**
 	 * $column.comments
 	 */
-	private Date createTime;
+	private String createTime;
 
 }

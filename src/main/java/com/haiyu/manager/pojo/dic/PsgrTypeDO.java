@@ -35,4 +35,6 @@ public class PsgrTypeDO implements Serializable {
 	 */
 	private String transTable;
 
+    private Integer logicDelete;
+
 }

@@ -34,5 +34,9 @@ public class RejectTicketTypeDO implements Serializable {
 	 * 票卡对应的交易表名
 	 */
 	private String transTable;
+    /**
+     * 逻辑删除标识符
+     */
+    private Integer logicDelete;
 
 }

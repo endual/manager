@@ -1,6 +1,6 @@
 package com.haiyu.manager.dao.dic;
 
-import com.haiyu.manager.pojo.dic.WorkorderTypeDO;
+import com.haiyu.manager.pojo.dic.WorkOrderTypeDO;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -12,6 +12,6 @@ import tk.mybatis.mapper.common.Mapper;
  * @date 2020-08-27 16:52:22
  */
 @Repository
-public interface WorkOrderTypeMapper extends Mapper<WorkorderTypeDO> {
+public interface WorkOrderTypeMapper extends Mapper<WorkOrderTypeDO> {
 
 }

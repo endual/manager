@@ -43,7 +43,7 @@ public class ArFileTypeDO {
      * 逻辑删除
      */
     @Column(name = "logic_delete")
-    private String logicDelete;
+    private Integer logicDelete;
 
     /**
      * 创建时间

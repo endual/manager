@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 支付类型
@@ -42,6 +41,6 @@ public class PaymentTypeDO implements Serializable {
 	/**
 	 * $column.comments
 	 */
-	private Date createTime;
+	private String createTime;
 
 }

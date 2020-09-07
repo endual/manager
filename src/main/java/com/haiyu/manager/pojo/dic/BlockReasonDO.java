@@ -2,12 +2,8 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 锁卡原因字典表
@@ -42,7 +38,8 @@ public class BlockReasonDO implements Serializable {
     /**
      * 创建时间
      */
-    private Date createTime;
+    @Column(name = "create_time")
+    private String createTime;
 
 }
 
