@@ -104,7 +104,8 @@ function edit(data,title){
         $("#id").val(data.id);
         $("#code").val(data.code);
         $("#description").val(data.description);
-        $("#deviceName").val(data.deviceName);
+        $("#logicDelete").val(data.logicDelete);
+        $("#createTime").val(data.createTime);
         pid = data.permissionIds;
     }
 

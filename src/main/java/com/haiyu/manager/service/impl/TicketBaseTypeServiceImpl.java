@@ -43,7 +43,6 @@ public class TicketBaseTypeServiceImpl  implements TicketBaseTypeService {
     @Override
     public Map<String, Object> addTicketBaseType(TicketBaseTypeDO ticketBaseTypeDO) {
         Map<String,Object> data = new HashMap();
-        ticketBaseTypeDO.setLogicDelete(1);
         try {
             ticketBaseTypeDO.setCreateTime(DateUtils.getCurrentDate());
             ticketBaseTypeDO.setLogicDelete(1);

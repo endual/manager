@@ -47,7 +47,6 @@ public class RejectCodeServiceImpl implements RejectCodeService {
         rejectCodeDO.setLogicDelete(1);
         try {
             rejectCodeDO.setCreateTime(DateUtils.getCurrentDate());
-            rejectCodeDO.setLogicDelete(1);
             int result = rejectCodeMapper.insert(rejectCodeDO);
             if(result == 0){
                 data.put("code",0);

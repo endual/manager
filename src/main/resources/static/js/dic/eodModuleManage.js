@@ -117,6 +117,7 @@ function edit(data,title){
         $("#cnField").val(data.cnField);
         $("#remark").val(data.remark);
         $("#logicDelete").val(data.logicDelete);
+        $("#createTime").val(data.createTime);
     }
 
     //拉取最新的表格数据

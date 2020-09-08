@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+>
+<head th:include="layout :: htmlhead" th:with="title=''"></head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头-->
+    <div th:replace="fragments/head :: header"></div>
+
+    <div class="layui-body" style="margin: 1%">
+
+        <table id="chipTypeList" lay-filter="chipTypeTable"></table>
+
+        <button class="layui-btn layui-btn-normal" onclick="add()">新增</button>
+
+        <script type="text/html" id="optBar">
+            <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+            {{#  if(d.roleStatus == '0'){ }}
+            <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="recover">恢复</a>
+            {{#  } else { }}
+            <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+            {{#  } }}
+        </script>
+
+    </div>
+
+    <!--添加或编辑-->
+    <div id="setChipType" class="layer_self_wrap" style="width:500px;display:none;">
+        <form id="chipTypeForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
+            <input id="pageNum" type="hidden" name="pageNum"/>
+            <input id="id" type="hidden" name="id"/>
+            <input id="logicDelete" type="hidden" name="logicDelete"/>
+            <input id="createTime" type="hidden" name="createTime"/>
+            <div class="layui-form-item">
+                <label class="layui-form-label">编码</label>
+                <div class="layui-input-inline">
+                    <input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input"
+                           type="text"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">定义描述</label>
+                <div class="layui-input-inline">
+                    <input id="description" name="description" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 10px;">
+                    <button class="layui-btn" lay-submit="" lay-filter="chipTypeSubmit">提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--底部-->
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="/static/js/dateUtils.js"></script>
+    <script src="/js/dic/chipTypeManage.js"></script>
+
+</div>
+</body>
+</html>

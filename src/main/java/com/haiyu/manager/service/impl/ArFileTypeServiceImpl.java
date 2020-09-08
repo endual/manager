@@ -46,6 +46,7 @@ public class ArFileTypeServiceImpl implements ArFileTypeService {
         Map<String,Object> data = new HashMap();
         try {
             arFileTypeDO.setCreateTime(DateUtils.getCurrentDate());
+            arFileTypeDO.setLogicDelete(1);
             int result = arFileTypeMapper.insert(arFileTypeDO);
             if(result == 0){
                 data.put("code",0);

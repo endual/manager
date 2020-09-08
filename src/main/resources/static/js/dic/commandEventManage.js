@@ -112,6 +112,8 @@ function edit(data,title){
         $("#eventValue").val(data.eventValue);
         $("#commandDestination").val(data.commandDestination);
         $("#commandSource").val(data.commandSource);
+        $("#logicDelete").val(data.logicDelete);
+        $("#createTime").val(data.createTime);
     }
     
     //拉取最新的表格数据

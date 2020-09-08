@@ -102,6 +102,7 @@ function edit(data,title){
         //回显数据
         $("#id").val(data.id);
         $("#tableName").val(data.tableName);
+        $("#logicDelete").val(data.logicDelete);
     }
 
     //拉取最新的表格数据

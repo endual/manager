@@ -104,6 +104,7 @@ function edit(data,title){
         $("#id").val(data.id);
         $("#description").val(data.description);
         $("#transTable").val(data.transTable);
+        $("#logicDelete").val(data.logicDelete);
     }
 
     //拉取最新的表格数据

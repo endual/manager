@@ -107,6 +107,7 @@ function edit(data,title){
         $("#value").val(data.value);
         $("#description").val(data.description);
         $("#isUse").val(data.isUse);
+        $("#createTime").val(data.createTime);
     }
 
     //拉取最新的表格数据

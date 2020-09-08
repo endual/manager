@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org"
-       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head th:include="layout :: htmlhead" th:with="title='用户管理'"></head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -10,7 +10,9 @@
     <div class="layui-body" style="margin: 1%">
 
 
-        <div style="display:none;" id="currentUser"><shiro:principal property="id"></shiro:principal></div>
+        <div style="display:none;" id="currentUser">
+            <shiro:principal property="id"></shiro:principal>
+        </div>
 
         <table id="eodModuleList" lay-filter="eodModuleTable"></table>
 
@@ -34,61 +36,68 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">组件id</label>
                 <div class="layui-input-inline">
-                    <input id="eodModuleId" name="eodModuleId" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="eodModuleId" name="eodModuleId" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">结构英文名</label>
                 <div class="layui-input-inline">
-                    <input id="enStructure" name="enStructure"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="enStructure" name="enStructure" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">结构中文名</label>
                 <div class="layui-input-inline">
-                    <input id="cnStructure" name="cnStructure"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="cnStructure" name="cnStructure" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">循环体英文名</label>
                 <div class="layui-input-inline">
-                    <input id="enCirculatory" name="enCirculatory"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="enCirculatory" name="enCirculatory" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">循环体中文名</label>
                 <div class="layui-input-inline">
-                    <input id="cnCirculatory" name="cnCirculatory"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="cnCirculatory" name="cnCirculatory" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">字段名称英文</label>
                 <div class="layui-input-inline">
-                    <input id="enField" name="enField"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="enField" name="enField" lay-verify="required" autocomplete="off" class="layui-input"
+                           type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">字段名称中文</label>
                 <div class="layui-input-inline">
-                    <input id="cnField" name="cnField"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="cnField" name="cnField" lay-verify="required" autocomplete="off" class="layui-input"
+                           type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">备注</label>
                 <div class="layui-input-inline">
-                    <input id="remark" name="remark"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="remark" name="remark" lay-verify="required" autocomplete="off" class="layui-input"
+                           type="text"/>
                 </div>
             </div>
 
             <div class="layui-form-item">
                 <div class="layui-input-block" style="margin-left: 10px;">
-                    <button class="layui-btn"  lay-submit="" lay-filter="eodModuleSubmit">提交</button>
+                    <button class="layui-btn" lay-submit="" lay-filter="eodModuleSubmit">提交</button>
                     <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                 </div>
             </div>
         </form>
     </div>
-
 
 
     <!--底部-->
