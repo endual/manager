@@ -29,13 +29,6 @@
         <form id="arFileTypeForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
             <input id="pageNum" type="hidden" name="pageNum"/>
             <input id="id" type="hidden" name="id"/>
-
-            <div class="layui-form-item">
-                <label class="layui-form-label">文件类型Id</label>
-                <div class="layui-input-inline">
-                    <input id="fileTypeId" name="fileTypeId" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
-                </div>
-            </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">编码</label>
                 <div class="layui-input-inline">
@@ -52,7 +45,6 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">设备名称</label>
                 <div class="layui-input-inline">
-<!--                    <input id="description" name="description" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>-->
                     <select name="deviceName"  xm-select="deviceName">
                         <option value="TVM">TVM</option>
                         <option value="BOM">BOM</option>
@@ -62,8 +54,6 @@
                     </select>
                 </div>
             </div>
-            <input id="logicDelete" name="logicDelete" lay-verify="required" autocomplete="off"
-                   class="layui-input" type="text">
             <div class="layui-form-item">
                 <div class="layui-input-block" style="margin-left: 10px;">
                     <button class="layui-btn"  lay-submit="" lay-filter="arFileTypeSubmit">提交</button>

@@ -1,6 +1,7 @@
 package com.haiyu.manager.controller.dic;
 
 
+import com.haiyu.manager.dto.TransTypeSearchDTO;
 import com.haiyu.manager.pojo.dic.TransTypeDO;
 import com.haiyu.manager.response.PageDataResult;
 import com.haiyu.manager.service.TransTypeService;
@@ -36,11 +37,11 @@ public class TransTypeController {
     @PostMapping("/getTransTypeList")
     @ResponseBody
     public PageDataResult getTransTypeList
-            (@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize) {
+            (@RequestParam("pageNum") Integer pageNum, @RequestParam("pageSize") Integer pageSize, TransTypeSearchDTO searchDto) {
 
         PageDataResult pdr = new PageDataResult();
         try {
-            pdr = transTypeService.getTransTypeList(pageNum,pageSize);
+            pdr = transTypeService.getTransTypeList(pageNum,pageSize,searchDto);
             logger.info("交易类型列表查询=pdr:" + pdr);
 
         } catch (Exception e) {

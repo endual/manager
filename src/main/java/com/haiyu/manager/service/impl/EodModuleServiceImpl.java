@@ -62,6 +62,7 @@ public class EodModuleServiceImpl implements EodModuleService {
         }
         return data;
     }
+
     @Override
     public Map<String, Object> updateEodModule(EodModuleDO eodModuleDO) {
         Map<String, Object> data = new HashMap<>();

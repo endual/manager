@@ -27,7 +27,7 @@ $(function() {
             cols: [[
                 {type:'numbers'}
                 ,{field:'code', title:'工单类型编码',align:'center'}
-                ,{field:'name', title:'name',align:'center'}
+                ,{field:'name', title:'工单名称',align:'center'}
                 ,{field:'remark', title: '附加说明',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
             ]],

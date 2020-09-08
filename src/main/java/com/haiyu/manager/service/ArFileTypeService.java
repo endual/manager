@@ -24,4 +24,5 @@ public interface ArFileTypeService {
     List<ArFileTypeDO> arFileTypeList();
 
     Map<String, Object> del(Integer id);
+
 }

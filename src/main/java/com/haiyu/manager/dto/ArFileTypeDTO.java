@@ -7,8 +7,6 @@ import lombok.Data;
 public class ArFileTypeDTO {
     private Integer id;
 
-    private String fileTypeId;
-
     private String code;
 
     private String description;

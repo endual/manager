@@ -24,10 +24,6 @@ public class TransTypeDO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    /**
-     * transTypeId
-     */
-	private Integer transTypeId;
 	/**
 	 * 设备类型
 	 */

@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.haiyu.manager.common.utils.DateUtils;
 import com.haiyu.manager.dao.dic.TransTypeMapper;
+import com.haiyu.manager.dto.TransTypeSearchDTO;
 import com.haiyu.manager.pojo.dic.TransTypeDO;
 import com.haiyu.manager.response.PageDataResult;
 import com.haiyu.manager.service.TransTypeService;
@@ -25,11 +26,11 @@ public class TransTypeServiceImpl implements TransTypeService {
     private TransTypeMapper transTypeMapper;
 
     @Override
-    public PageDataResult getTransTypeList(Integer pageNum, Integer pageSize) {
+    public PageDataResult getTransTypeList(Integer pageNum, Integer pageSize, TransTypeSearchDTO searchDto) {
         PageDataResult pageDataResult = new PageDataResult();
         PageHelper.startPage(pageNum, pageSize);
         Example example = new Example(TransTypeDO.class);
-        example.createCriteria().andEqualTo("logicDelete", 1);
+        example.createCriteria().andEqualTo("logicDelete", 1).andEqualTo("deviceType",searchDto.getDeviceType());
         List<TransTypeDO> list = transTypeMapper.selectByExample(example);;
         if(list.size() != 0){
             PageInfo<TransTypeDO> pageInfo = new PageInfo<>(list);

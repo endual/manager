@@ -22,12 +22,6 @@ public class ArFileTypeDO {
     private Integer id;
 
     /**
-     * 文件类型id
-     */
-    @Column(name = "file_type_id")
-    private String fileTypeId;
-
-    /**
      * 文件编码
      */
     @Column(name = "code")

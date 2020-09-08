@@ -9,7 +9,20 @@
 
     <div class="layui-body" style="margin: 1%">
 
-
+        <form id="transTypeSearch" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
+            <div class="layui-form-item">
+                <label class="layui-form-label">设备类型</label>
+                <div class="layui-input-inline">
+                    <input id="dicDeviceType" name="deviceType" autocomplete="off" class="layui-input" type="text"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-inline">
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <button class="layui-btn"  lay-submit="" lay-filter="searchSubmit">提交</button>
+                </div>
+            </div>
+        </form>
         <div style="display:none;" id="currentUser"><shiro:principal property="id"></shiro:principal></div>
 
         <table id="transTypeList" lay-filter="transTypeTable"></table>
@@ -28,37 +41,34 @@
 
     <!--添加或控制指令原因-->
     <div id="setTransType" class="layer_self_wrap" style="width:500px;display:none;">
-        <form id="transTypeForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
+        <form id="transTypeForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;" >
             <input id="pageNum" type="hidden" name="pageNum"/>
             <input id="id" type="hidden" name="id"/>
             <div class="layui-form-item">
-                <label class="layui-form-label">transTypeId</label>
-                <div class="layui-input-inline">
-                    <input id="transTypeId" name="transTypeId" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
-                </div>
-            </div>
-            <div class="layui-form-item">
                 <label class="layui-form-label">设备类型</label>
-                <div class="layui-input-inline">
+                <div class="layui-input-inline" >
                     <input id="deviceType" name="deviceType"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">设备交易类型</label>
+                <label class="layui-form-label" >车票交易类型</label>
                 <div class="layui-input-inline">
-                    <input id="ticketTransType" name="ticketTransType"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="ticketTransType" name="ticketTransType"  lay-verify="required" autocomplete="off" class="layui-input" type="text" />
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">车票交易类型</label>
+                <label class="layui-form-label" >交易类型编号</label>
                 <div class="layui-input-inline">
                     <input id="transTypeNo" name="transTypeNo"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label">是否交易</label>
+                <label class="layui-form-label">有无值交易</label>
                 <div class="layui-input-inline">
-                    <input id="valueFlag" name="valueFlag"  lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <select name="valueFlag"  xm-select="valueFlag">
+                        <option value="1">有值交易</option>
+                        <option value="0">无值交易</option>
+                    </select>
                 </div>
             </div>
             <div class="layui-form-item">

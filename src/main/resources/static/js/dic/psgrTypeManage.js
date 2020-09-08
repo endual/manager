@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'id', title:'id',align:'center'}
                 ,{field:'description', title:'描述',align:'center'}
                 ,{field:'transTable', title: '交易表格',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}

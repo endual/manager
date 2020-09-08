@@ -1,5 +1,6 @@
 package com.haiyu.manager.controller.dic;
 
+import com.haiyu.manager.dto.ArFileTypeDTO;
 import com.haiyu.manager.pojo.dic.ArFileTypeDO;
 import com.haiyu.manager.response.PageDataResult;
 import com.haiyu.manager.service.ArFileTypeService;
@@ -55,7 +56,7 @@ public class ArFileTypeController {
     @ResponseBody
     public PageDataResult getArFileTypeList(@RequestParam("pageNum") Integer pageNum,
                                             @RequestParam("pageSize") Integer pageSize,
-            /*@Valid PageRequest page,*/ ArFileTypeDO arFileTypeDO) {
+            /*@Valid PageRequest page,*/ ArFileTypeDTO arFileTypeDTO) {
         PageDataResult pdr = new PageDataResult();
         try {
             if (null == pageNum) {

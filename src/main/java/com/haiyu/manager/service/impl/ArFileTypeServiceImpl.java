@@ -26,7 +26,7 @@ public class ArFileTypeServiceImpl implements ArFileTypeService {
     private ArFileTypeMapper arFileTypeMapper;
 
     @Override
-    public PageDataResult getArFileTypeList(Integer pageNum,Integer pageSize) {
+    public PageDataResult getArFileTypeList(Integer pageNum, Integer pageSize) {
         PageDataResult pageDataResult = new PageDataResult();
         Example example = new Example(ArFileTypeDO.class);
         example.createCriteria().andEqualTo("logicDelete", 1);

@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'id', title:'id',align:'center'}
                 ,{field:'code', title:'子类型',align:'center'}
                 ,{field:'description', title:'描述',align:'center'}
                 ,{field:'parentCode', title:'主类型',align:'center'}
@@ -36,6 +35,27 @@ $(function() {
             done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                $("[data-field='parentCode']").children().each(function(){
+                    if($(this).text()=='1'){
+                        $(this).text("单程票")
+                    }else if($(this).text()=='2'){
+                        $(this).text("地铁储值票")
+                    }else if($(this).text()=='3'){
+                        $(this).text("地铁乘次票")
+                    }else if($(this).text()=='4'){
+                        $(this).text("员工票")
+                    }else if($(this).text()=='5'){
+                        $(this).text("榕城通")
+                    }else if($(this).text()=='6'){
+                        $(this).text("省通卡")
+                    }else if($(this).text()=='7'){
+                        $(this).text("市民卡")
+                    }else if($(this).text()=='8'){
+                        $(this).text("二维码")
+                    }else if($(this).text()=='9'){
+                        $(this).text("虚拟卡")
+                    }
+                });
                 //console.log(res);
                 //得到当前页码
                 console.log(curr);
