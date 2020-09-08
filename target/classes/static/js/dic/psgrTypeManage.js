@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'id', title:'id',align:'center'}
                 ,{field:'description', title:'描述',align:'center'}
                 ,{field:'transTable', title: '交易表格',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
@@ -105,6 +104,7 @@ function edit(data,title){
         $("#id").val(data.id);
         $("#description").val(data.description);
         $("#transTable").val(data.transTable);
+        $("#logicDelete").val(data.logicDelete);
     }
 
     //拉取最新的表格数据

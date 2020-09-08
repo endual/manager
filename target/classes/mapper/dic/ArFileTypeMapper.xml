@@ -6,7 +6,6 @@
           WARNING - @mbg.generated
         -->
         <id column="id" jdbcType="INTEGER" property="id" />
-        <result column="file_type_id" jdbcType="VARCHAR" property="fileTypeId" />
         <result column="code" jdbcType="VARCHAR" property="code" />
         <result column="description" jdbcType="INTEGER" property="description" />
         <result column="logic_delete" jdbcType="VARCHAR" property="logicDelete" />
@@ -17,9 +16,6 @@
     <update id="updateArFileType">
         UPDATE dic_ar_file_type
         <set>
-            <if test="fileTypeId != null">
-                file_type_id = #{fileTypeId},
-            </if>
             <if test="code != null">
                 code = #{code},
             </if>
@@ -37,7 +33,7 @@
     </update>
 
     <sql id="baseColumn">
-    id,file_type_id,code,description,logic_delete,create_time,device_name
+    id,code,description,logic_delete,create_time,device_name
   </sql>
 
 </mapper>

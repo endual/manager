@@ -26,7 +26,7 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'tableName', title:'tableName',align:'center'}
+                ,{field:'tableName', title:'表名',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
             ]],
             done: function(res, curr, count){
@@ -102,6 +102,7 @@ function edit(data,title){
         //回显数据
         $("#id").val(data.id);
         $("#tableName").val(data.tableName);
+        $("#logicDelete").val(data.logicDelete);
     }
 
     //拉取最新的表格数据

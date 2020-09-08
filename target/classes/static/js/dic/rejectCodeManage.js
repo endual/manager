@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'id', title:'id',align:'center'}
                 ,{field:'code', title:'文件编码',align:'center'}
                 ,{field:'description', title:'描述',align:'center'}
                 ,{field:'createTime', title: '创建时间',align:'center'}
@@ -98,7 +97,6 @@ function add() {
 
 //打开编辑框
 function edit(data,title){
-    var parentId = null;
     if(data == null){
         $("#id").val("");
     }else{

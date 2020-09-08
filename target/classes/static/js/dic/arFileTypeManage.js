@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'fileTypeId', title:'文件类型Id',align:'center'}
                 ,{field:'code', title:'文件编码',align:'center'}
                 ,{field:'description', title:'描述',align:'center'}
                 ,{field:'deviceName', title: '设备名称',align:'center'}
@@ -104,9 +103,9 @@ function edit(data,title){
         //回显数据
         $("#id").val(data.id);
         $("#code").val(data.code);
-        $("#fileTypeId").val(data.fileTypeId);
         $("#description").val(data.description);
-        $("#deviceName").val(data.deviceName);
+        $("#logicDelete").val(data.logicDelete);
+        $("#createTime").val(data.createTime);
         pid = data.permissionIds;
     }
 
@@ -151,7 +150,7 @@ function edit(data,title){
 
 // 删除ar文件类型
 function delFileType(obj,id) {
-    if(null!=fileTypeId){
+    if(null!=id){
         layer.confirm('您确定要删除吗？', {
             btn: ['确认','返回'] //按钮
         }, function(){
@@ -183,7 +182,6 @@ function load(obj){
 function cleanArFileType() {
     $("#id").val("");
     $("#code").val("");
-    $("#fileTypeId").val("");
     $("#description").val("");
     $("#logicDelete").val("");
 }

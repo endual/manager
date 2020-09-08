@@ -26,7 +26,6 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'transTypeId', title:'transTypeId',align:'center'}
                 ,{field:'deviceType', title:'设备类型',align:'center'}
                 ,{field:'ticketTransType', title:'车票交易类型',align:'center'}
                 ,{field:'transTypeNo', title:'交易类型编号',align:'center'}
@@ -37,6 +36,13 @@ $(function() {
             done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
+                $("[data-field='valueFlag']").children().each(function(){
+                    if($(this).text()=='1'){
+                        $(this).text("有值交易")
+                    }else if($(this).text()=='0'){
+                        $(this).text("无值交易")
+                    }
+                });
                 //console.log(res);
                 //得到当前页码
                 console.log(curr);
@@ -62,6 +68,16 @@ $(function() {
             // TODO 校验
             formSubmit(data);
             return false;
+        });
+        //搜素框
+        layui.use(['form','laydate'], function(){
+            //TODO 数据校验
+            //监听搜索框
+            form.on('submit(searchSubmit)', function(data){
+                //重新加载table
+                load(data);
+                return false;
+            });
         });
 
     });
@@ -106,7 +122,6 @@ function edit(data,title){
     }else{
         //回显数据
         $("#id").val(data.id);
-        $("#transTypeId").val(data.transTypeId);
         $("#deviceType").val(data.deviceType);
         $("#ticketTransType").val(data.ticketTransType);
         $("#transTypeNo").val(data.transTypeNo);
@@ -186,7 +201,6 @@ function load(obj){
 
 function cleanTransType(){
     $("#id").val("");
-    $("#transTypeId").val("");
     $("#deviceType").val("");
     $("#ticketTransType").val("");
     $('#transTypeNo').val("");
