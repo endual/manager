@@ -1,5 +1,5 @@
 /**
- * 用户管理
+ *
  */
 var pageCurr;
 var form;
@@ -9,8 +9,8 @@ $(function() {
         form = layui.form;
 
         tableIns=table.render({
-            elem: '#partTypeList',
-            url:'/partType/getPartTypeList',
+            elem: '#landMarkList',
+            url:'/landMark/getLandMarkList',
             method: 'post', //默认：get请求
             cellMinWidth: 80,
             page: true,
@@ -26,14 +26,13 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'code', title:'文件编码',align:'center'}
-                ,{field:'name', title:'名称',align:'center'}
-                ,{field:'parentCode', title:'父编码',align:'center'}
-                ,{field:'remark', title: '备注',align:'center'}
-                ,{field:'landMark', title: '地标',align:'center'}
+                ,{field:'code', title:'编码',align:'center'}
+                ,{field:'description', title:'描述',align:'center'}
+                ,{field:'createTime', title: '创建时间',align:'center'}
+                ,{field:'updateTime', title: '更新时间',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
             ]],
-             done: function(res, curr, count){
+              done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 $("[data-field='landMark']").children().each(function(){
                     if($(this).text()=='1'){
@@ -42,6 +41,13 @@ $(function() {
                         $(this).text("福州")
                     }
                 });
+                  $("[data-field='isUse']").children().each(function(){
+                      if($(this).text()=='1'){
+                          $(this).text("是")
+                      }else if($(this).text()=='0'){
+                          $(this).text("否")
+                      }
+                  });
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                 //console.log(res);
@@ -52,34 +58,35 @@ $(function() {
                 pageCurr=curr;
             }
         });
+
         //监听工具条
-        table.on('tool(partTypeTable)', function(obj){
+        table.on('tool(landMarkTable)', function(obj){
             var data = obj.data;
             if(obj.event === 'del'){
                 //删除
-                delPartType(data,data.id,data.sysPartTypeName);
+                del(data,data.id);
             } else if(obj.event === 'edit'){
                 //编辑
-                edit(data,"编辑");
+                edit(data);
             }
         });
 
         //监听提交
-        form.on('submit(partTypeSubmit)', function(data){
+        form.on('submit(landMarkSubmit)', function(data){
             // TODO 校验
+            console.log(data.id);
             formSubmit(data);
             return false;
         });
-
     });
 });
 
 //提交表单
 function formSubmit(obj){
     $.ajax({
-        type: "POST",
-        data: $("#partTypeForm").serialize(),
-        url: "/partType/setPartType",
+        type: "post",
+        data: $("#landMarkForm").serialize(),
+        url: "/landMark/setLandMark",
         success: function (data) {
             if (data.code == 1) {
                 layer.alert(data.msg,function(){
@@ -93,8 +100,7 @@ function formSubmit(obj){
         error: function () {
             layer.alert("操作请求错误，请您稍后再试",function(){
                 layer.closeAll();
-                //加载load方法
-                load(obj);//自定义
+                load(obj);
             });
         }
     });
@@ -104,43 +110,32 @@ function formSubmit(obj){
 function add() {
     edit(null,"新增");
 }
-
 //打开编辑框
 function edit(data,title){
-    var parentId = null;
     if(data == null){
         $("#id").val("");
     }else{
         //回显数据
         $("#id").val(data.id);
-        $("#partTypeId").val(data.partTypeId);
-        $("#enStructure").val(data.enStructure);
-        $("#cnStructure").val(data.cnStructure);
-        $("#enCirculatory").val(data.enCirculatory);
-        $("#cnCirculatory").val(data.cnCirculatory);
-        $("#enField").val(data.enField);
-        $("#cnField").val(data.cnField);
-        $("#remark").val(data.remark);
+        $("#code").val(data.code);
+        $("#description").val(data.description)
         $("#logicDelete").val(data.logicDelete);
         $("#createTime").val(data.createTime);
-        $("#landMark").val(data.landMark);
+        $("#isUse").val(data.isUse);
+        $("#updateTime").val(data.updateTime);
     }
 
     //拉取最新的表格数据
-    formSelects.data('partType', 'server', {
-        url: '/partType/partTypeList',
+    formSelects.data('landMark', 'server', {
+        url: '/landMark/landMarkList',
         keyName: 'name',
         keyVal: 'id',
         success: function(id, url, searchVal, result){      //使用远程方式的success回调
-            console.log(pid)
-            if(pid != null){
-                var assistAuditArry =pid.split(",");
-                formSelects.value('partType', assistAuditArry);
-            }
+
             console.log(result);    //返回的结果
         },
         error: function(id, url, searchVal, err){           //使用远程方式的error回调
-                                                            //同上
+            //同上
             console.log(err);   //err对象
         },
     });
@@ -156,35 +151,34 @@ function edit(data,title){
         resize :false,
         shadeClose: true,
         area: ['550px','550px'],
-        content:$('#setPartType'),
+        content:$('#setLandMark'),
         end:function(){
-            cleanPartType();
+            clean();
         }
     });
 }
 
-//删除
-function delPartType(obj,id,name) {
+// 删除
+function del(obj,id) {
     if(null!=id){
-            layer.confirm('您确定要删除吗？', {
-                btn: ['确认','返回'] //按钮
-            }, function(){
-                $.post("/partType/del",{"id":id},function(data){
-                    if (data.code == 1) {
-                        layer.alert(data.msg,function(){
-                            layer.closeAll();
-                            load(obj);
-                        });
-                    } else {
-                        layer.alert(data.msg);
-                    }
-                });
-            }, function(){
-                layer.closeAll();
+        layer.confirm('您确定要删除吗？', {
+            btn: ['确认','返回'] //按钮
+        }, function(){
+            $.post("/landMark/del",{"id":id},function(data){
+                if (data.code == 1) {
+                    layer.alert(data.msg,function(){
+                        layer.closeAll();
+                        load(obj);
+                    });
+                } else {
+                    layer.alert(data.msg);
+                }
             });
+        }, function(){
+            layer.closeAll();
+        });
     }
 }
-
 
 function load(obj){
     //重新加载table
@@ -195,10 +189,12 @@ function load(obj){
         }
     });
 }
-
-function cleanPartType(){
-    $("#partTypename").val("");
-    $("#mobile").val("");
-    $("#password").val("");
-    $('#roleId').html("");
+function cleanAandMark() {
+    $("#id").val("");
+    $("#code").val("");
+    $("#description").val("");
+    $("#logicDelete").val("");
+    $("#createTime").val("");
+    $("#updateTime").val("");
+    $("#isUse").val("");
 }

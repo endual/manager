@@ -9,7 +9,7 @@
 
     <div class="layui-body" style="margin: 1%">
 
-        <table id="modeCodeList}" lay-filter="modeCodeTable"></table>
+        <table id="modeCodeList" lay-filter="modeCodeTable"></table>
 
         <button class="layui-btn layui-btn-normal" onclick="add()">新增</button>
 
@@ -30,31 +30,38 @@
         <input id="id" type="hidden" name="id"/>
         <form id="modeCodeForm" class="layui-form layui-form-pane" method="post" action="" style="margin-top: 20px;">
             <div class="layui-form-item">
-                <label class="layui-form-label"></label>
+                <label class="layui-form-label">车站模式名称</label>
                 <div class="layui-input-inline">
                     <input id="name" name="name" lay-verify="required" autocomplete="off" class="layui-input"
                            type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label"></label>
+                <label class="layui-form-label">车站模式取值</label>
                 <div class="layui-input-inline">
                     <input id="value" name="value" lay-verify="required" autocomplete="off" class="layui-input"
                            type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label"></label>
+                <label class="layui-form-label">描述</label>
                 <div class="layui-input-inline">
                     <input id="description" name="description" lay-verify="required" autocomplete="off"
                            class="layui-input" type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
-                <label class="layui-form-label"></label>
+                <label class="layui-form-label">是否使用</label>
                 <div class="layui-input-inline">
                     <input id="isUse" name="isUse" lay-verify="required" autocomplete="off" class="layui-input"
                            type="text"/>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">地标</label>
+                <div class="layui-input-inline">
+                    <input id="landMark" name="landMark" lay-verify="required" autocomplete="off"
+                           class="layui-input" type="text">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -70,7 +77,7 @@
     <!--底部-->
     <div th:replace="fragments/footer :: footer"></div>
     <script src="/static/js/dateUtils.js"></script>
-    <script src="/static/js/dic/modeCodeManage.js"></script>
+    <script src="/js/dic/modeCodeManage.js"></script>
 
 </div>
 </body>

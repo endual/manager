@@ -2,10 +2,7 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -38,6 +35,11 @@ public class DailyKnotTypeDO implements Serializable {
 	 * 创建时间
 	 */
 	private String createTime;
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 	/**
 	 * 是否保留历史数据 0|否，1|是
 	 */

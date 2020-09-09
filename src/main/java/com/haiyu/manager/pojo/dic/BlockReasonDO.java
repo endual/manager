@@ -40,6 +40,11 @@ public class BlockReasonDO implements Serializable {
      */
     @Column(name = "create_time")
     private String createTime;
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 
 }
 

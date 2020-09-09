@@ -11,6 +11,7 @@
         <result column="logic_delete" jdbcType="VARCHAR" property="logicDelete" />
         <result column="create_time" jdbcType="VARCHAR" property="createTime" />
         <result column="device_name" jdbcType="VARCHAR" property="deviceName" />
+        <result column="land_mark" jdbcType="VARCHAR" property="landMark" />
     </resultMap>
 
     <update id="updateArFileType">
@@ -27,6 +28,9 @@
             </if>
             <if test="deviceName != null">
                 device_name = #{deviceName}
+            </if>
+            <if test="landMark != null">
+                land_mark = #{landMark}
             </if>
         </set>
         WHERE id = #{id}

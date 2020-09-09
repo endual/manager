@@ -43,6 +43,11 @@ public class CardIssuerDO implements Serializable {
      * 创建时间
      */
     @Column(name = "create_time")
-    private String createTime;
+   private String createTime;
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 
 }

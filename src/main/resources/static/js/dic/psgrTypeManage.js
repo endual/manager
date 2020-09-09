@@ -26,11 +26,20 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'description', title:'描述',align:'center'}
                 ,{field:'transTable', title: '交易表格',align:'center'}
+                ,{field:'description', title:'描述',align:'center'}
+                ,{field:'landMark', title: '地标',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
             ]],
-            done: function(res, curr, count){
+             done: function(res, curr, count){
+                //如果是异步请求数据方式，res即为你接口返回的信息。
+                $("[data-field='landMark']").children().each(function(){
+                    if($(this).text()=='1'){
+                        $(this).text("上海")
+                    }else if($(this).text()=='0'){
+                        $(this).text("福州")
+                    }
+                });
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                 //console.log(res);
@@ -105,6 +114,7 @@ function edit(data,title){
         $("#description").val(data.description);
         $("#transTable").val(data.transTable);
         $("#logicDelete").val(data.logicDelete);
+        $("#landMark").val(data.landMark);
     }
 
     //拉取最新的表格数据

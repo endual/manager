@@ -6,15 +6,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * 车票有效期类别
+ * 
  * 
  * @author lzx
  * @email sunlightcs@gmail.com
  * @date 2020-09-08 15:02:08
  */
 @Data
-@Table(name="dic_duration_mode")
-public class DurationModeDO implements Serializable {
+@Table(name="dic_land_mark")
+public class LandMarkDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -32,7 +32,7 @@ public class DurationModeDO implements Serializable {
 	 */
 	private String description;
 	/**
-	 * 逻辑删除
+	 * 逻辑删除 1使用 0不使用
 	 */
 	private Integer logicDelete;
 	/**
@@ -40,9 +40,14 @@ public class DurationModeDO implements Serializable {
 	 */
 	private String createTime;
     /**
-     * 地标
+     * 是否使用
      */
-    @Column(name = "land_mark")
-    private String landMark;
+    @Column(name = "is_use")
+    private Integer isUse;
+    /**
+     * 更新时间
+     */
+    @Column(name = "update_time")
+    private String updateTime;
 
 }

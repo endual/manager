@@ -50,4 +50,10 @@ public class ArFileTypeDO {
      */
     @Column(name = "device_name")
     private String deviceName;
+
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 }

@@ -3,10 +3,7 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -42,5 +39,10 @@ public class WorkOrderTypeDO implements Serializable {
 	 * 附加说明
 	 */
 	private String remark;
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 
 }

@@ -2,10 +2,7 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -50,5 +47,9 @@ public class CommandEventDO implements Serializable {
      * 逻辑删除
      */
 	private Integer logicDelete;
-
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 }

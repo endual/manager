@@ -26,12 +26,21 @@ $(function() {
             },
             cols: [[
                 {type:'numbers'}
-                ,{field:'code', title:'工单类型编码',align:'center'}
-                ,{field:'name', title:'工单名称',align:'center'}
                 ,{field:'remark', title: '附加说明',align:'center'}
+                ,{field:'name', title:'工单名称',align:'center'}
+                ,{field:'code', title:'工单类型编码',align:'center'}
+                ,{field:'landMark', title: '地标',align:'center'}
                 ,{title:'操作',align:'center', toolbar:'#optBar'}
             ]],
-            done: function(res, curr, count){
+             done: function(res, curr, count){
+                //如果是异步请求数据方式，res即为你接口返回的信息。
+                $("[data-field='landMark']").children().each(function(){
+                    if($(this).text()=='1'){
+                        $(this).text("上海")
+                    }else if($(this).text()=='0'){
+                        $(this).text("福州")
+                    }
+                });
                 //如果是异步请求数据方式，res即为你接口返回的信息。
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度
                 //console.log(res);
@@ -107,6 +116,7 @@ function edit(data,title){
         $("#name").val(data.name);
         $("#status").val(data.status);
         $("#remark").val(data.remark);
+        $("#landMark").val(data.landMark);
     }
 
     //拉取最新的表格数据

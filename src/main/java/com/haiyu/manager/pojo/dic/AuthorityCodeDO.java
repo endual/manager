@@ -2,10 +2,7 @@ package com.haiyu.manager.pojo.dic;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -46,5 +43,10 @@ public class AuthorityCodeDO implements Serializable {
 	 * 类型
 	 */
 	private String type;
+    /**
+     * 地标
+     */
+    @Column(name = "land_mark")
+    private String landMark;
 
 }
