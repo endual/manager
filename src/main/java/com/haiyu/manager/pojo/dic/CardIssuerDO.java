@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_CARD_ISSUER")
+@Table(name="dic_card_issuer")
 public class CardIssuerDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
