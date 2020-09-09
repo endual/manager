@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_PART_TYPE")
+@Table(name="dic_part_type")
 public class PartTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_MODE_CODE")
+@Table(name="dic_mode_code")
 public class ModeCodeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_TICKET_BASE_TYPE")
+@Table(name="dic_ticket_base_type")
 public class TicketBaseTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
