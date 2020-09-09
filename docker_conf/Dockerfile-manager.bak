@@ -1,0 +1,15 @@
+
+FROM java:8
+
+
+VOLUME /tmp
+
+
+ADD afc-cloud-eod.jar afc-cloud-eod.jar
+RUN bash -c 'touch /afc-cloud-eod.jar'
+
+
+# COPY /root/afc-test/sc-test/afc-cloud-eod.jar /app/sc-test
+
+# ENV spring.profiles.active="prod"
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/afc-cloud-eod.jar"]

@@ -1,0 +1,14 @@
+
+FROM java:8
+
+
+VOLUME /tmp
+
+
+ADD afc-manager.jar afc-manager.jar
+RUN bash -c 'touch /afc-manager.jar'
+
+
+
+# ENV spring.profiles.active="prod"
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/afc-manager.jar"]

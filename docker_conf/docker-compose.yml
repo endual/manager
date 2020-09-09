@@ -1,0 +1,17 @@
+version: '3'
+services:
+  haiyu-manager:
+    container_name: haiyu-manager
+    build:
+      context: ..
+      dockerfile: docker_conf/Dockerfile-manager
+    image: haiyu-manager
+
+    expose:
+      - 8102
+    ports:
+      - 8102:8102
+ 
+    restart: always
+      
+  
