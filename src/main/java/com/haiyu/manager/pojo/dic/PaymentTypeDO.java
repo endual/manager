@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_PAYMENT_TYPE")
+@Table(name="dic_payment_type")
 public class PaymentTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

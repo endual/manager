@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:22
  */
 @Data
-@Table(name="DIC_WORKORDER_TYPE")
+@Table(name="dic_workorder_type")
 public class WorkOrderTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

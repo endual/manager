@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_DAILY_KNOT_TYPE")
+@Table(name="dic_daily_knot_type")
 public class DailyKnotTypeDO implements Serializable {
 	private static final long serialVersionUID= 1L;
 

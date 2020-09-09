@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_OPERATOR_TYPE")
+@Table(name="dic_operator_type")
 public class OperatorTypeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_REJECT_CODE")
+@Table(name="dic_reject_code")
 public class RejectCodeDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 

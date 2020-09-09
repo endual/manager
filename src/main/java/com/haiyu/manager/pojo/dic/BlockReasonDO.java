@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @date 2020-08-27 16:52:23
  */
 @Data
-@Table(name="DIC_BLOCK_REASON")
+@Table(name="dic_block_reason")
 public class BlockReasonDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
