@@ -1,5 +1,5 @@
 server:
-  port: 8102
+  port: 8000
 
 
 spring:
@@ -42,11 +42,13 @@ pagehelper:
 
 # logging
 logging:
+  #配置日志文件路径
+  file: log\afc-manager.log #日志文件名称
   level:
+    root: info #日志级别 root表示所有包，也可以单独配置具体包 fatal error warn info debug trace off
     # dao 开启 debug 模式 mybatis 输入 sql
-    cn:
-      iocoder:
-        springboot:
-          lab12:
-            mybatis:
-              mapper: debug
+    com:
+      haiyu:
+        manager:
+          dao:
+            dic: debug
