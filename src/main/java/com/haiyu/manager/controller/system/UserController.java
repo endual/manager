@@ -153,7 +153,7 @@ public class UserController {
      */
     @RequestMapping("/userManage")
     public String userManage() {
-        return "/user/userManage";
+        return "user/userManage";
     }
 
     /**
