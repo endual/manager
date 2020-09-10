@@ -15,7 +15,6 @@ spring:
       max-active: 20
       test-on-borrow: true
       driver-class-name: com.mysql.jdbc.Driver
-  landMark: 0 # 表示福州 1表示上海
 #  thymeleaf:
 #      cache: false
 #      mode: HTML5
