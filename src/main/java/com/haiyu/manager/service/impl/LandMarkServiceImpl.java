@@ -51,7 +51,9 @@ public class LandMarkServiceImpl implements LandMarkService {
     public Map<String, Object> addLandMark(LandMarkDO landMarkDO) {
         Map<String,Object> data = new HashMap();
         try {
-            landMarkDO.setCreateTime(DateUtils.getCurrentDate());
+            String currentDate = DateUtils.getCurrentDate();
+            landMarkDO.setCreateTime(currentDate);
+            landMarkDO.setUpdateTime(currentDate);
             landMarkDO.setLogicDelete(1);
             int result = landMarkMapper.insert(landMarkDO);
             if(result == 0){

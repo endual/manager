@@ -35,11 +35,35 @@ $(function() {
             ]],
             done: function(res, curr, count){
                 //如果是异步请求数据方式，res即为你接口返回的信息。
-                $("[data-field='landMark']").children().each(function(){
-                    if($(this).text()=='1'){
-                        $(this).text("上海")
-                    }else if($(this).text()=='0'){
-                        $(this).text("福州")
+                debugger;
+                $.ajax({
+                    type: "get",
+                    url: "/landMark/landMarkSelectList",
+                    success: function (res) {
+                        $("#landMark").empty();
+                        var map = new Map();
+                        for(var i =0;i<res.data.landMark.length;i++){
+                            var landMarkDesc = res.data.landMark[i].description;
+                            var landMarkCode = res.data.landMark[i].code;
+                            map.set(landMarkCode, landMarkDesc);
+                            $("#landMark").append("<option value=\""+landMarkDesc+"\">"+landMarkDesc+"</option>");
+                        }
+                        console.log(map);
+                    //重新渲染
+                        layui.form.render("select");
+                        $("[data-field='landMark']").children().each(function(){
+                            for (var [key, value] of map) {
+                                if($(this).text()==key){
+                                    $(this).text(value);
+                                }
+                            }
+                        });
+                    },
+                    error: function () {
+                        layer.alert("操作请求错误，请您稍后再试",function(){
+                            layer.closeAll();
+                            load(obj);
+                        });
                     }
                 });
                 //如果是直接赋值的方式，res即为：{data: [], count: 99} data为当前页数据、count为数据总长度

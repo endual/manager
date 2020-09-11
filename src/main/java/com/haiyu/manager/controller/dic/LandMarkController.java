@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -87,6 +88,30 @@ public class LandMarkController {
         logger.info("获取列表");
         return landMarkService.landMarkList();
 
+    }
+    /**
+     * 获取下拉列表
+     * @return
+     */
+    @GetMapping("/landMarkSelectList")
+    @ResponseBody
+    public Map<String,Object> landMarkSelectList() {
+        logger.info("获取列表");
+        Map<String,Object> result = new HashMap<>();
+        Map<String,List<LandMarkDO>> map = new HashMap<>();
+        List<LandMarkDO> list = landMarkService.landMarkList();
+        map.put("landMark",list);
+        result.put("data", map);
+        return result;
+    }
+
+    @GetMapping("/add")
+    public String add(Model model) {
+        // 查询产品（添加时），将需要添加的产品做一个下拉框
+        List<LandMarkDO> list = landMarkService.landMarkList();//查询
+        // "wxProduct"在前台页面直接引用的，list是把查询到的内容传给"wxProduct"
+        model.addAttribute("landMark",list);
+        return "dic/arFileTypeManage";  //返回到所使用的页面
     }
     /**
      * 功能描述: 删除——逻辑删除
