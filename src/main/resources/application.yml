@@ -7,9 +7,9 @@ spring:
       name: haiyu
   datasource:
     druid:
-      url: jdbc:mysql://172.162.0.201:3306/sunway?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
-      username: root
-      password: sunway
+      url: jdbc:mysql://172.162.0.201:3306/dictdb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+      username: dict
+      password: dict
       initial-size: 1
       min-idle: 1
       max-active: 20

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org"
-       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org"
+>
 <head th:include="layout :: htmlhead" th:with="title='用户管理'"></head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -32,14 +32,13 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">编码</label>
                 <div class="layui-input-inline">
-                    <input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input" type="text"/>
+                    <input id="code" name="code" lay-verify="required" autocomplete="off" class="layui-input"type="text"/>
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">描述</label>
                 <div class="layui-input-inline">
-                    <input id="description" name="description" lay-verify="required" autocomplete="off"
-                           class="layui-input" type="text">
+                    <input id="description" name="description" lay-verify="required" autocomplete="off" class="layui-input" type="text">
                 </div>
             </div>
             <div class="layui-form-item">
@@ -54,13 +53,15 @@
                     </select>
                 </div>
             </div>
+            <!-- 第一步：写一个空下拉框的页面，代码如下：-->
             <div class="layui-form-item">
                 <label class="layui-form-label">地标</label>
                 <div class="layui-input-inline layui-form">
-                    <select name="landMark" id="landMark">
+                    <select name="classifyId" id="classifyId">
                         <option value="">请选择</option>
                     </select>
                 </div>
+
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block" style="margin-left: 10px;">
@@ -76,7 +77,26 @@
     <div th:replace="fragments/footer :: footer"></div>
     <script src="/js/dateUtils.js"></script>
     <script src="/js/dic/arFileTypeManage.js"></script>
-
+    <script src="/js/dic/getClassify.js"/>
+    <script type='text/javascrip'>
+        layui.use(['form','upload','layer'],function(){
+            var form = layui.form;
+            $.ajax({
+                url: '/landMark/landMarkList',
+                dataType: 'json',
+                type: 'get',
+                success: function(data){
+                    $.each(data,function(index,item){
+                        
+                        $('#classifyId').append(new Option(item.code,item.id));
+                    });
+                    layui.form.render("select");
+                },
+                error: 
+            
+            });
+        })    
+    </script>
 </div>
 </body>
 </html>
